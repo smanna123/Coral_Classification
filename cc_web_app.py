@@ -9,7 +9,7 @@ Created on Thu Jun  2 09:41:53 2022
 #from configparser import Interpolation
 #from fileinput import filename
 #from tkinter.tix import IMAGE
-from turtle import width
+#from turtle import width
 import numpy as np
 import pickle
 import streamlit as st
@@ -26,26 +26,26 @@ from tensorflow.keras import models, layers, preprocessing
 #loaded_model = pickle.load(open('/Users/sayantanmanna/Desktop/cc_class/desa_boiwl.sav', 'rb'))
 
 
-'''def loaded_image(image_file):
-	img = Image.open(image_file)
-	return img
+###def loaded_image(image_file):
+	#img = Image.open(image_file)
+	#return img
 
-def scale(image):
-   image = tf.cast(image, tf.float32)
-   image /=255.0
+#def scale(image):
+   #image = tf.cast(image, tf.float32)
+   #image /=255.0
 
-   return tf.image.resize(image, [256,256])
+   #return tf.image.resize(image, [256,256])
 
-def decode_img(image):
-   img = tf.image.decode_jpeg(image, channels=3)
-   img = scale(img)
-   return np.expand_dims(img, axis=0)
+#def decode_img(image):
+   #img = tf.image.decode_jpeg(image, channels=3)
+   #img = scale(img)
+   #return np.expand_dims(img, axis=0)
 
-def saveImage(byteImage):
-    bytesImg = io.BytesIO(byteImage)
-    imgFile = Image.open(bytesImg)   
+#def saveImage(byteImage):
+    #bytesImg = io.BytesIO(byteImage)
+    #imgFile = Image.open(bytesImg)   
    
-    return imgFile'''
+    #return imgFile
 
 
 
