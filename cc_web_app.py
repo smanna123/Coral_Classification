@@ -6,9 +6,9 @@ Created on Thu Jun  2 09:41:53 2022
 @author: sayantanmanna
 """
 
-from configparser import Interpolation
-from fileinput import filename
-from tkinter.tix import IMAGE
+#from configparser import Interpolation
+#from fileinput import filename
+#from tkinter.tix import IMAGE
 from turtle import width
 import numpy as np
 import pickle
@@ -16,9 +16,9 @@ import streamlit as st
 from PIL import Image, ImageOps
 import tensorflow as tf
 from tensorflow.keras import models, layers, preprocessing
-import cv2
-import os
-import io
+#import cv2
+#import os
+#import io
 
 
 
@@ -26,7 +26,7 @@ import io
 #loaded_model = pickle.load(open('/Users/sayantanmanna/Desktop/cc_class/desa_boiwl.sav', 'rb'))
 
 
-def loaded_image(image_file):
+'''def loaded_image(image_file):
 	img = Image.open(image_file)
 	return img
 
@@ -45,7 +45,7 @@ def saveImage(byteImage):
     bytesImg = io.BytesIO(byteImage)
     imgFile = Image.open(bytesImg)   
    
-    return imgFile   
+    return imgFile'''
 
 
 
