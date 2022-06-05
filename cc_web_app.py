@@ -52,7 +52,7 @@ from tensorflow.keras import models, layers, preprocessing
 
 
 def load_model():
-   model = tf.keras.models.load_model('/Users/sayantanmanna/Desktop/image_classification/my_model2.hdf5')
+   model = tf.keras.models.load_model('my_model2.hdf5')
    return model
 
 
