@@ -137,8 +137,8 @@ def main():
          
          #st.write(np.argmax(predictions))
          #st.success('Predicted class is : {}'.format(class_names[np.argmax(predictions)]))
-	 st.success('Predicted class is : {}'.format(predictions[0]))
-         st.success('confidence is : {}'.format(predictions[1]))
+	  st.success('Predicted class is : {}'.format(predictions[0]))
+          st.success('confidence is : {}'.format(predictions[1]))
 
 	
     
