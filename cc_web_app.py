@@ -55,6 +55,17 @@ def load_model():
    model = tf.keras.models.load_model('my_model2.hdf5')
    return model
 
+def predict(img, model):
+   size = (256,256)
+   image = ImageOps.fit(img, size, Image.ANTIALIAS)
+   img_array = tf.keras.preprocessing.image.img_to_array(image)
+   img_array = tf.expand_dims(img_array, 0)
+    
+   predictions = model.predict(img_array)
+    
+   predicted_class = class_names[np.argmax(predictions[0])]
+   confidence = round(100 * (np.max(predictions[0])), 2)
+   return predicted_class, confidence
 
 
 def import_predict(image_data, model):
@@ -81,7 +92,7 @@ def main():
          image = Image.open(image_file)
          st.image(image, use_column_width=True)
          model = load_model()
-         predictions = import_predict(image, model)
+         predictions = predict(image, model)
          
       
    
@@ -125,7 +136,9 @@ def main():
 
          
          #st.write(np.argmax(predictions))
-         st.success('Predicted class is : {}'.format(class_names[np.argmax(predictions)]))
+         #st.success('Predicted class is : {}'.format(class_names[np.argmax(predictions)]))
+	 st.success('Predicted class is : {}'.format(predictions[0]))
+         st.success('confidence is : {}'.format(predictions[1]))
 
 	
     
