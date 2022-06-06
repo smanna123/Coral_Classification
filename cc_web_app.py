@@ -48,7 +48,16 @@ from tensorflow.keras import models, layers, preprocessing
     #return imgFile
 
 
-
+class_names = ['algae',
+                     'balanus',
+                     'blue_mussel',
+                     'christmas_tree_worm',
+                     'finger_sponge',
+                     'gooseneck_barnacle',
+                     'kelp',
+                     'rock_oysters',
+                     'stinging_hydrozoan',
+                     'zebra_mussel']
 
 
 def load_model():
