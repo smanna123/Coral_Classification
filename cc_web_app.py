@@ -94,70 +94,16 @@ def main():
    image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
    if image_file is not None:
-         #file_details = {"filename":image_file.name, "filetype":image_file.type,"filesize":image_file.size}
-         #st.write(file_details)
-         #img = st.image(loaded_image(image_file))
-         #img = loaded_image(image_file)
-         image = Image.open(image_file)
-         st.image(image, use_column_width=True)
-         model = load_model()
-         predictions = predict(image, model)
-         
-      
-   
-      #with open(image_file.name,'wb') as f:
-       #f.write(image_file.read())
-      
-      
-
-      #data_image = tf.keras.preprocessing.image.img_to_array(image_file)
-      #data_image = tf.keras.utils.img_to_array(image_file, data_format=None, dtype=None)
-      #data_image = asarray(image_file)
-     
-      #first_image = loaded_image(image_file)
-      
-      #second_image = tf.keras.preprocessing.image.smart_resize(first_image, size, interpolation='bilinear')
-
-         #img = cv2.imread(img.name)
-         #img = cv2.resize(img,(256,256))
-         #img = np.reshape(img,[1,256,256,3])
-         
-         #test_image = image.resize((256,256))
-         #test_image = preprocessing.image.img_to_array(test_image)
-         #test_image = test_image/255.0
-         #test_image = np.expand_dims(test_image, axis=0)
-
-
-
-         #batch_prediction = loaded_model.predict(test_image)
-         #score = tf.nn.softmax(batch_prediction[0])
-         #score = score.numpy()
-         class_names = ['algae',
-                     'balanus',
-                     'blue_mussel',
-                     'christmas_tree_worm',
-                     'finger_sponge',
-                     'gooseneck_barnacle',
-                     'kelp',
-                     'rock_oysters',
-                     'stinging_hydrozoan',
-                     'zebra_mussel']
-
-         
-         #st.write(np.argmax(predictions))
-         st.success('Predicted class is : {}'.format(predictions[0]))
-	 st.write('confidence is : {}'.format(predictions[1]))
-	 #st.success('Confidence percentage is : {}'.format(predictions[1]))
-	 
-
 	
-    
-   
-       
-       
-       
-       
-       
+       image = Image.open(image_file)
+       st.image(image, use_column_width=True)
+       model = load_model()
+       predictions = predict(image, model)
+       st.success('Predicted class is : {}'.format(predictions[0]))
+       st.success('confidence is : {}'.format(predictions[1]))
+	 #st.success('Confidence percentage is : {}'.format(predictions[1]))
+		
+	 
 if __name__ == '__main__':
     main()
     
