@@ -61,7 +61,7 @@ class_names = ['algae',
 
 
 def load_model():
-   model = tf.keras.models.load_model('keras_model.hdf5')
+   model = tf.keras.models.load_model('keras_model.h5')
    return model
 
 def predict(img, model):
