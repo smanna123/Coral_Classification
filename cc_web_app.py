@@ -128,7 +128,7 @@ def main():
          st.success('confidence is : {}'.format(predictions[1]))
 	 #st.success('Confidence percentage is : {}'.format(predictions[1]))
        else:
-       	 st.success('Sorry!!!!Please upload only coral picture, unable to identify any other image')
+       	 st.error('Sorry!!!!Please upload only coral picture, unable to identify any other image')
 		
 	 
 if __name__ == '__main__':
