@@ -61,7 +61,7 @@ class_names = ['algae',
 
 
 def load_model():
-   model = tf.keras.models.load_model('my_model2.hdf5')
+   model = tf.keras.models.load_model('keras_model.hdf5')
    return model
 
 def predict(img, model):
@@ -86,6 +86,29 @@ def import_predict(image_data, model):
    prediction = model.predict(image_reshape)
    return prediction
 
+
+def new_predict(image, model):
+
+   data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+   # Replace this with the path to your image
+   #resize the image to a 224x224 with the same strategy as in TM2:
+   #resizing the image to be at least 224x224 and then cropping from the center
+   size = (224, 224)
+   image = ImageOps.fit(image, size, Image.ANTIALIAS)
+
+   #turn the image into a numpy array
+   image_array = np.asarray(image)
+   # Normalize the image
+   normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+   # Load the image into the array
+   data[0] = normalized_image_array
+
+   # run the inference
+   prediction = model.predict(data)
+   predicted_class = class_names[np.argmax(prediction[0])]
+   confidence = round(100 * (np.max(prediction[0])), 2)
+   return predicted_class, confidence
+
 def main():
     
    
@@ -98,10 +121,14 @@ def main():
        image = Image.open(image_file)
        st.image(image, use_column_width=True)
        model = load_model()
-       predictions = predict(image, model)
-       st.success('Predicted class is : {}'.format(predictions[0]))
-       st.success('confidence is : {}'.format(predictions[1]))
+       predictions = new_predict(image, model)
+	
+       if(predictions[1]>65):
+       	 st.success('Predicted class is : {}'.format(predictions[0]))
+         st.success('confidence is : {}'.format(predictions[1]))
 	 #st.success('Confidence percentage is : {}'.format(predictions[1]))
+       else:
+       	 st.success('Sorry!!!!Please upload only coral picture, unable to identify any other image')
 		
 	 
 if __name__ == '__main__':
